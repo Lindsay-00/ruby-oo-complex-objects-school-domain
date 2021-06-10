@@ -26,13 +26,18 @@ class School
     end
 
     def sort
-        @roster.sort_by{|key, value| value}.to_h
-        @roster[9].sort!
-        @roster
-       
+        # @roster.sort_by{|key, value| value}.to_h
+        #@roster.{|key| @roster[key].sort}
+        # @roster
 
-        # arr = @roster.collect{|grade, name| name.sort}
+        # @roster.sort_by{|key, value| @roster[@student_grade]}.to_h
+
+        arr = @roster.each_with_object({}){|(key, value), final_hash| final_hash[key] = value.sort}
         
+       # @roster.each{|key, value| value.each{|element| element.sort}}
+       #@roster.each{|key, value| value.sort}
+    #    @roster[@student_grade].each{|value| value.sort}
+    #  @roster[@student_grade].sort
     end
 end
 # binding.pry
